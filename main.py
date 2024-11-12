@@ -1,5 +1,11 @@
+summe_warenkorb = 0
+
 while True:
-    print(" ### Tarifauskunftsrechner Museum XXX ### ")
+    if summe_warenkorb != 0:
+        print(" ### Tarifauskunftsrechner Museum XXX ### ")
+    else:
+        print("Wählen Sie weiteres Ticket! Aktueller Warenkorb: " , summe_warenkorb )
+
     print(" Hallo, geben Sie bitte Ihr Alter ein.")
     alter_gast = int(input())
 
@@ -21,9 +27,11 @@ while True:
         
     if alter_gast < 14:
         print(" ### Eintritt Kinder ### ")
+        summe_warenkorb += preis_kinder
         print(" Preis: ", preis_kinder, " Euro ")
     elif alter_gast < 18:
         print(" ### Eintritt Jugendliche ### ")
+        summe_warenkorb += preis_jugend
         print(" Preis: ", preis_jugend, " Euro ")  
     else:
         print(" Sind Sie Mitglied im Duisburger Museumsclub? (Nachweis erforderlich) ")
@@ -32,13 +40,22 @@ while True:
         print(" Wenn Sie kein Mitglied sind, drücken Sie eine beliebige andere Taste. ")
         antwort_rabatt = input();
         if antwort_rabatt == "p":
+            sekt = input("Wollen Sie ein zusätzliches Sekt haben? (j (Ja) / n (Nein)): ")
             print(" ### Eintritt Premium-Mitglied ### ")
-            print(" Preis: ", preis_premium, " Euro ")
+            if sekt.lower() == 'j':
+                summe_warenkorb += preis_premium + 0.75
+                print(" Preis: ", preis_premium + 0.75 , " Euro ")
+            else:
+                summe_warenkorb += preis_premium
+                print(" Preis: ", preis_premium, " Euro ")
+                
         elif antwort_rabatt == "b":
             print(" ### Eintritt Basis-Mitglied ### ")
+            summe_warenkorb += preis_basis
             print(" Preis: ", preis_basis, " Euro ")
         else:
             print(" ### Eintritt Erwachsene (voller Preis) ### ")
+            summe_warenkorb += preis_erwachsene
             print(" Preis: ", preis_erwachsene, " Euro")
             
     print("Viel Spaß!")
