@@ -22,7 +22,7 @@ while True:
     if alter_gast < 14:
         print(" ### Eintritt Kinder ### ")
         print(" Preis: ", preis_kinder, " Euro ")
-    if alter_gast < 18:
+    elif alter_gast < 18:
         print(" ### Eintritt Jugendliche ### ")
         print(" Preis: ", preis_jugend, " Euro ")  
     else:
