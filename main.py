@@ -1,14 +1,24 @@
-preis_erwachsene = 5.0
-preis_kinder = 2.5
-preis_jugend = 3.5
-preis_premium = 3.0
-preis_basis = 4.0
-
 while True:
     print(" ### Tarifauskunftsrechner Museum XXX ### ")
     print(" Hallo, geben Sie bitte Ihr Alter ein.")
     alter_gast = int(input())
 
+    print("Wollen Sie einen ganzene oder halben Tag bleiben! (g (ganztag) / h (halbtags))")
+    tag_eingabe = input()
+
+    if tag_eingabe == 'g':
+        preis_erwachsene = 10.0
+        preis_kinder = 5.0
+        preis_jugend = 6.0
+        preis_premium = 6.0
+        preis_basis = 8.0
+    else:
+        preis_erwachsene = 5.0
+        preis_kinder = 2.5
+        preis_jugend = 3.5
+        preis_premium = 3.0
+        preis_basis = 4.0
+        
     if alter_gast < 14:
         print(" ### Eintritt Kinder ### ")
         print(" Preis: ", preis_kinder, " Euro ")
@@ -35,5 +45,4 @@ while True:
 
     nochmal = input("Wollen Sie einen Weiteren Tarif abfragen? (j (Ja) / n (Nein)): ")
     if nochmal.lower() != 'j':
-        print("Programm beendet.")
         break
